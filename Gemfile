@@ -38,4 +38,10 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Allows push to heroku
 gem 'rails_12factor', group: :production
+
+# Adds rspec test driven development
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
