@@ -1,1 +1,8 @@
-<h1>Hello there!</h1>
+<h1>Imstagrans!!</h1>
+
+<% @grams.each do |gram| %>
+<div>
+  <%= gram.message %>
+  <%= image_tag gram.picture %>
+</div>
+<% end %>

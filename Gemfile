@@ -47,3 +47,6 @@ group :development, :test do
   gem "factory_girl_rails", "~> 4.0"
 end
 gem 'devise'
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+gem 'figaro'
+gem 'fog'
