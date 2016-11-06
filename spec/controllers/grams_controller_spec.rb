@@ -1,6 +1,22 @@
 require 'rails_helper'
-
+#---------------------------------------------------------
 RSpec.describe GramsController, type: :controller do
+#-----------------------------------------------------------------------------------
+    describe "grams#destroy action" do
+      it "should allow a user to destroy grams" do
+        gram = FactoryGirl.create(:gram)
+        delete :destroy, id: gram.id
+        expect(response).to redirect_to root_path
+        gram = Gram.find_by_id(gram.id)
+        expect(gram).to eq nil
+      end
+
+      it "should return a 404 message if we cannot find a gram with the id that is specified" do
+          delete :destroy, id: 'SPACEDUCK'
+          expect(response).to have_http_status(:not_found)
+      end
+    end                                   #grams#destroy
+#---------------------------------------------------------
     describe "grams#update action" do
       it "should allow users to successfully update grams" do
         gram = FactoryGirl.create(:gram, message: "Initial Value")
@@ -22,8 +38,8 @@ RSpec.describe GramsController, type: :controller do
         gram.reload
         expect(gram.message).to eq "Initial Value"
       end
-    end
-
+    end                                   #grams#update
+#-----------------------------------------------------------------------------------
     describe "grams#edit action" do
       it "should successfully show the edit form if the gram is found" do
         gram = FactoryGirl.create(:gram)
@@ -36,7 +52,7 @@ RSpec.describe GramsController, type: :controller do
         expect(response).to have_http_status(:not_found)
       end
     end                                 #grams#edit
-
+#-----------------------------------------------------------------------------------
     describe "grams#show action" do
     it "should successfully show the page if the gram is found" do
       gram = FactoryGirl.create(:gram)
@@ -49,7 +65,7 @@ RSpec.describe GramsController, type: :controller do
       expect(response).to have_http_status(:not_found)
     end
   end                                    #grams#show
-
+#-----------------------------------------------------------------------------------
   describe "grams#index action" do
     it "should successfully show the page" do
       get :index
@@ -57,7 +73,7 @@ RSpec.describe GramsController, type: :controller do
     end
   end                                   #grams#index
 
-
+#-----------------------------------------------------------------------------------
   describe "grams#new action" do
     it "should require users to be logged in" do
       get :new
@@ -72,7 +88,7 @@ RSpec.describe GramsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end                                     #grams#new
-
+#-----------------------------------------------------------------------------------
 
   describe "grams#create action" do
   it "should require users to be logged in" do
