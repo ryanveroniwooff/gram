@@ -10,65 +10,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="top-nav" id="header">
+<div class="top-nav">
   <div class="col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
     <div class="brand">
-      Imstagran
+      Imstagran :)
     </div>
-    <div class="add pull-right">
+    
       <% if current_user %>
-        Welcome, <%= current_user.email %>.
-        <div class="righty">
-        <%= link_to "New Post", new_gram_path %>
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+        <span style="color:#125688; font-size: 20px;">Welcome, <%= current_user.email%></span>
+        <div class="add pull-right">
+          <%= link_to "New Post", new_gram_path %>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+          </div>
       <% else %>
-        <%= link_to "Sign In", new_user_session_path %>
-        <%= link_to "Sign Up", new_user_registration_path %>
+        <div class="add pull-right">
+          <%= link_to "Sign In", new_user_session_path %>
+          <%= link_to "Sign Up", new_user_registration_path %>
+        </div>
       <% end %>
-    </div>
-    </div>
+        
   </div>
   <br class="clear-fix" />
 </div>
-
-<div class="col-xs-12 col-xs-offset-1 col-sm-10 col-sm-offset-2 col-md-8 col-md-offset-3">
-  <% @grams.each do |gram| %>
-    <div class="card">
-      <div class="handle"><%= gram.user.email %></div>
-      <%= image_tag gram.picture, class: 'img-responsive' %>
-      <p>
-        <%= gram.message %>
-      </p>
-      
-      <div class="gram-actions pull-right">
-        <% if current_user && current_user == gram.user %>
-          <%= link_to 'Edit', edit_gram_path(gram), class: 'my-btn' %>
-          <%= link_to 'Destroy', gram_path(gram), method: :delete, data: {confirm: 'Are you sure?'} %>      
-        <% end %>
-      </div>
-      <br class="clear-fix" />
-      <div class="comments">
-        <h3>Comments</h3>
-        <% gram.comments.each do |comment| %>
-          <div class="comment">
-            <span class="comment_handle">
-              <%= comment.user.email %>
-            </span>
-            
-            <%= comment.message %>
-          </div>
-        <% end %>
-        <h4>Add a comment</h4>
-        <%= simple_form_for Comment.new, url: gram_comments_path(gram) do |f| %>
-          <%= f.input :message %>
-          <%= f.submit 'Add Comment', class: 'my-btn' %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-</div>
-
-
 
 <%= yield %>
 

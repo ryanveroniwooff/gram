@@ -1,8 +1,18 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 body {
-  background: url('/patt1.png');
+  background: url('/grey.png');
+}
+.welcome{
+  color:white;
+  font-size: 1vw;
+}
+.box{
+  margin-top: 75px;
 }
 #header{
-  background: url('/patt2.png');
+  background: url('/grey.png');
 }
 .top-nav {
   position: fixed;
@@ -15,8 +25,8 @@ body {
   float: right;
 }
 .brand {
-  color: #125688;
-  font-size: 30px;
+  color: white;
+  font-size: 60px;
   font-family: 'Pacifico', cursive;
   text-align: center;
 }
@@ -25,7 +35,7 @@ a {
 }
 .top-nav .add a {
   font-weight:bold;
-  color: #125688;
+  color: white;
   font-size:16px;
   padding-left:8px;
 }
@@ -42,7 +52,7 @@ a {
 }
 .handle {
   margin: 10px;
-  color: #125688;
+  color: red;
   font-weight: bold;
   font-size: 18px;
 }
