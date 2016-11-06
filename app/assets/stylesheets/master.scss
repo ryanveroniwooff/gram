@@ -1,13 +1,27 @@
 body {
   background: url('/patt1.png');
 }
+#header{
+  background: url('/patt2.png');
+}
 .top-nav {
-  background-color:white;
+  position: fixed;
+  display: inline;
+  top:0;
+  left:0;
+  min-width:100vw;
+}
+.righty {
+  float: right;
 }
 .brand {
   color: #125688;
   font-size: 30px;
   font-family: 'Pacifico', cursive;
+  text-align: center;
+}
+a {
+  text-decoration: none;
 }
 .top-nav .add a {
   font-weight:bold;
@@ -16,7 +30,7 @@ body {
   padding-left:8px;
 }
 .top-nav .add {
-  margin-top:10px;
+  /*margin-top:10px;*/
 }
 .card {
   background-color: #fff;
