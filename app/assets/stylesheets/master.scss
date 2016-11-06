@@ -1,20 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-  background: url('/grey.png');
-}
-.welcome{
-  color:white;
-  font-size: 1vw;
-}
-.box{
-  margin-top: 75px;
-}
+
+
 #header{
-  background: url('/grey.png');
+  background: url('/patt2.png');
+  position:fixed;
 }
 .top-nav {
+  background: url('/grey.png');
   position: fixed;
   display: inline;
   top:0;
@@ -27,20 +21,25 @@ body {
 .brand {
   color: white;
   font-size: 60px;
+  font-weight: 100;
   font-family: 'Pacifico', cursive;
   text-align: center;
+}
+body {
+  margin-top: 75px;
+  background: url('/grey.png');
 }
 a {
   text-decoration: none;
 }
 .top-nav .add a {
-  font-weight:bold;
+  font-weight:normal;
   color: white;
   font-size:16px;
   padding-left:8px;
 }
 .top-nav .add {
-  /*margin-top:10px;*/
+  margin-top:-10px;
 }
 .card {
   background-color: #fff;
