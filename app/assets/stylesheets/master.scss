@@ -1,6 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+@import "materialize";
 
 
 #header{
@@ -8,12 +8,12 @@
   position:fixed;
 }
 .top-nav {
-  background: url('/grey.png');
   position: fixed;
   display: inline;
   top:0;
   left:0;
   min-width:100vw;
+  bottom-margin: 20px;
 }
 .righty {
   float: right;
@@ -27,7 +27,6 @@
 }
 body {
   margin-top: 75px;
-  background: url('/grey.png');
 }
 a {
   text-decoration: none;
