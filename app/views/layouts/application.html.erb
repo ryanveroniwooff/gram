@@ -1,44 +1,46 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Imstagran</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,100,300,600,700' rel='stylesheet' type='text/css'>
-<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body id="top-of-page" class="grey">
-  <div class="brand">
-      Imstagran
+  <html>
+  <head>
+    <title>Imstagran</title>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,100,300,600,700' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body class="grey">
+    <div class="add brand">
+    <a href="/#" class="white-text">
+        Imstagran
+    </a>
     </div>
-<div class="container top-nav grey">
-  <div class="col s12">
-    
-  <br class="clear-fix" />
-      <div class="container">
-      <% if current_user %>
-        <!-- NEED TO FIX LINKS -->
-        <div class="add col s4 push-s6">
-          <%= link_to "New Post", new_gram_path %>
-          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-          <a class="right" href="#top-of-page">Back to Top</a>
-          </div>
-      <% else %>
-        <div class="add center">
-          <%= link_to "Sign In", new_user_session_path %>
-          <%= link_to "Sign Up", new_user_registration_path %>
-          <a href="#top-of-page">Back to Top</a>
+    <div class="container top-nav grey">
+      <div class="col s12">
+      
+        <br class="clear-fix" />
+        <div class="container">
+          <% if current_user %>
+            <!-- nav links -->
+            <div class="add col s4 push-s6 right">
+              <%= link_to "New Post", new_gram_path %>
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+              <a href="#">^Top</a>
+            </div>
+          <% else %>
+            <div class="add center">
+              <%= link_to "Sign In", new_user_session_path %>
+              <%= link_to "Sign Up", new_user_registration_path %>
+              <a href="#">^Top</a>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
-  </div>
-</div>
-  <br class="clear-fix" />
-  <br class="clear-fix" />
-
-<%= yield %>
-
-</body>
+    <br class="clear-fix" />
+    <br class="clear-fix" />
+    <%= yield %>
+  </body>
 </html>
