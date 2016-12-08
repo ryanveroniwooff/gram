@@ -15,21 +15,21 @@
           <%= gram.message %>
         </h5>
         <br class="clear-fix" />
-
-          <% gram.comments.each do |comment| %>
+        
         <div class="card-panel grey lighten-4">
-        <div class="comments">
             <h5>Comments</h5>
-            <div class="comment">
+            <% gram.comments.each do |comment| %>
+            <div class="comments">
+              <div class="comment">
                 <p class="left">
                   <span class="comment_handle">
                     <%= comment.user.email.split("@")[0] %>: 
                   </span>
-                  <%= comment.message %>
+                  <%= comment.message %> <br class="clear-fix" />
                 </p>
               </div>
+            </div>
           <% end %>
-
           <br class="clear-fix" />
           <br class="clear-fix" />
 
@@ -44,7 +44,7 @@
             <%= link_to 'Delete', gram_path(gram), method: :delete, data: {confirm: 'Are you sure?'} %>      
           <% end %>
         </div>
-        </div></div>
+          </div>
       </div>
     </div>
   </div>
