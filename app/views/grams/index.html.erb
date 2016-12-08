@@ -1,26 +1,26 @@
 <% @grams.each do |gram| %>
   <div class="container grey col s12">
-     <div class="col s12">
-        <div class="card-panel z-depth-5">
-          <div class="blue-text">
-            <h4>
-              <%= gram.user.email.split("@")[0] %>
-              <span class="grey-text text-lighten-2 small thin">
-                <%="#{time_ago_in_words(gram.created_at)} ago"%>
-              </span>
-            </h4>
-          </div>
-          <%= image_tag gram.picture, class: 'responsive-img' %>
-          <h5> 
-            <%= gram.message %>
-          </h5>
-          <br class="clear-fix" />
+    <div class="col s12">
+      <div class="card-panel z-depth-5">
+        <div class="blue-text">
+          <h4>
+            <%= gram.user.email.split("@")[0] %>
+            <span class="grey-text text-lighten-2 small thin">
+              <%="#{time_ago_in_words(gram.created_at)} ago"%>
+            </span>
+          </h4>
+        </div>
+        <%= image_tag gram.picture, class: 'responsive-img' %>
+        <h5> 
+          <%= gram.message %>
+        </h5>
+        <br class="clear-fix" />
 
           <% gram.comments.each do |comment| %>
-            <div class="card-panel grey lighten-4">
-            <div class="comments">
-              <h5>Comments</h5>
-              <div class="comment">
+        <div class="card-panel grey lighten-4">
+        <div class="comments">
+            <h5>Comments</h5>
+            <div class="comment">
                 <p class="left">
                   <span class="comment_handle">
                     <%= comment.user.email.split("@")[0] %>: 
@@ -38,12 +38,13 @@
             <%= f.submit 'Add Comment', class: 'my-btn' %>
           <% end %>
 
-         <div class="gram-actions">
+        <div class="gram-actions">
           <% if current_user && current_user == gram.user %>
             <%= link_to 'Edit', edit_gram_path(gram)%>
             <%= link_to 'Delete', gram_path(gram), method: :delete, data: {confirm: 'Are you sure?'} %>      
           <% end %>
         </div>
+        </div></div>
       </div>
     </div>
   </div>
