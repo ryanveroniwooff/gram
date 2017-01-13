@@ -1,6 +1,5 @@
-== README
+== Imstagran
 
-Imstagran is a clone I built using TDD and the best Ruby-on-Rails practices as part of The Firehose Project curriculum
+Built using TDD and the best Ruby-on-Rails practices as part of The Firehose Project curriculum
 - Rails 4
 - Materialize
-- The Firehose Project
